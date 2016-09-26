@@ -1,5 +1,7 @@
 # grunt-file-rev
 
+> 2016 fork of https://github.com/cbas/grunt-rev
+
 [![Build Status](https://travis-ci.org/vladikoff/grunt-file-rev.png)](https://travis-ci.org/vladikoff/grunt-file-rev)
 
 Static file asset revisioning through content hashing
