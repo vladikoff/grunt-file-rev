@@ -1,11 +1,3 @@
-/*
- * grunt-rev
- * https://github.com/cbas/grunt-rev
- *
- * Copyright (c) 2013 Sebastiaan Deckers
- * Licensed under the MIT license.
- */
-
 'use strict';
 
 module.exports = function(grunt) {
@@ -51,9 +43,6 @@ module.exports = function(grunt) {
         src: ['tmp/custom.txt']
       },
       international_options: {
-        options: {
-          encoding: 'utf8'
-        },
         src: ['tmp/international.txt']
       },
     },

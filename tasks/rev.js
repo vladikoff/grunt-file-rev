@@ -1,30 +1,22 @@
-/*
- * grunt-rev
- * https://github.com/cbas/grunt-rev
- *
- * Copyright (c) 2013 Sebastiaan Deckers
- * Licensed under the MIT license.
- */
-
 'use strict';
 
-var fs = require('fs'),
-  path = require('path'),
-  crypto = require('crypto');
+var fs = require('fs');
+var path = require('path');
+var crypto = require('crypto');
 
 module.exports = function(grunt) {
 
-  function md5(filepath, algorithm, encoding, fileEncoding) {
+  function md5(filepath, algorithm, encoding) {
     var hash = crypto.createHash(algorithm);
     grunt.log.verbose.write('Hashing ' + filepath + '...');
-    hash.update(grunt.file.read(filepath), fileEncoding);
+    // treat all files as byte sequences, encoding is null.
+    hash.update(fs.readFileSync(filepath), { encoding: null });
     return hash.digest(encoding);
   }
 
   grunt.registerMultiTask('rev', 'Prefix static asset file names with a content hash', function() {
 
     var options = this.options({
-      encoding: 'utf8',
       algorithm: 'md5',
       length: 8
     });
@@ -32,7 +24,7 @@ module.exports = function(grunt) {
     this.files.forEach(function(filePair) {
       filePair.src.forEach(function(f) {
 
-        var hash = md5(f, options.algorithm, 'hex', options.encoding),
+        var hash = md5(f, options.algorithm, 'hex'),
           prefix = hash.slice(0, options.length),
           renamed = [prefix, path.basename(f)].join('.'),
           outPath = path.resolve(path.dirname(f), renamed);

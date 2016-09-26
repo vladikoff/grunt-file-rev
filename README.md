@@ -1,7 +1,6 @@
-# grunt-rev
+# grunt-file-rev
 
-[![Build Status](https://travis-ci.org/cbas/grunt-rev.png)](https://travis-ci.org/cbas/grunt-rev)
-[![Project Status: Unsupported - The project has reached a stable, usable state but the author(s) have ceased all work on it. A new maintainer may be desired.](http://www.repostatus.org/badges/latest/unsupported.svg)](http://www.repostatus.org/#unsupported)
+[![Build Status](https://travis-ci.org/vladikoff/grunt-file-rev.png)](https://travis-ci.org/vladikoff/grunt-file-rev)
 
 Static file asset revisioning through content hashing
 
@@ -11,13 +10,13 @@ _If you haven't used [grunt][] before, be sure to check out the [Getting Started
 From the same directory as your project's [Gruntfile][Getting Started] and [package.json][], install this plugin with the following command:
 
 ```bash
-npm install grunt-rev --save-dev
+npm install grunt-file-rev --save-dev
 ```
 
 Once that's done, add this line to your project's Gruntfile:
 
 ```js
-grunt.loadNpmTasks('grunt-rev');
+grunt.loadNpmTasks('grunt-file-rev');
 ```
 
 If the plugin has been installed correctly, running `grunt --help` at the command line should list the newly-installed plugin's task or tasks. In addition, the plugin should be listed in package.json as a `devDependency`, which ensures that it will be installed whenever the `npm install` command is run.
@@ -37,7 +36,6 @@ In your project's Gruntfile, add a section named `rev` to the data object passed
 grunt.initConfig({
   rev: {
     options: {
-      encoding: 'utf8',
       algorithm: 'md5',
       length: 8
     },
@@ -54,12 +52,6 @@ grunt.initConfig({
 ```
 
 ### Options
-
-#### options.encoding
-Type: `String`
-Default value: `'utf8'`
-
-The encoding of the file contents.
 
 #### options.algorithm
 Type: `String`
