@@ -10,7 +10,7 @@ module.exports = function(grunt) {
     var hash = crypto.createHash(algorithm);
     grunt.log.verbose.write('Hashing ' + filepath + '...');
     // treat all files as byte sequences, encoding is null.
-    hash.update(fs.readFileSync(filepath), { encoding: null });
+    hash.update(fs.readFileSync(filepath));
     return hash.digest(encoding);
   }
 
